@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    # environment:
+    # MONGO_INITDB_ROOT_USERNAME: root
+    # MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - local_mongo:/data/db
+    networks:
+      - dbnetwork
+  mongo-express:
+    image: mongo-express
+    container_name: mongoUI
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      # ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      # ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_BASICAUTH_USERNAME: test
+      ME_CONFIG_BASICAUTH_PASSWORD: test
+      ME_CONFIG_MONGODB_URL: mongodb://mongodb:27017/
+    networks:
+      - dbnetwork
+
+volumes:
+  local_mongo:
+    name: dbLocalVolume
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /root/dev/project/docker_data/mongo_data
+      # device: /Users/gauravagrwl/Documents/dev/Projects/docker_data/mongo_data
+
+networks:
+  dbnetwork:
+    name: dbnetwork
+    driver: bridge

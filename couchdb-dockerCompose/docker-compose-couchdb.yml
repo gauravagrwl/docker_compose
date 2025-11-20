@@ -1,0 +1,43 @@
+services:
+
+  couchdb:
+    image: couchdb:3.3
+    container_name: couchdb
+    restart: always
+    ports:
+      - 5984:5984
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: admin123
+    volumes:
+      - local_couchdb:/opt/couchdb/data
+    networks:
+      - dbnetwork
+
+  couchdb-ui:
+    image: couchdb:3.3
+    container_name: couchdb-ui
+    restart: always
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: admin123
+    ports:
+      - 5985:5984
+    networks:
+      - dbnetwork
+    command: ["couchdb"]
+
+volumes:
+  local_couchdb:
+    name: couchLocalVolume
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      # device: /root/dev/project/docker_data/couchdb_data
+      device: /Users/gauravagrwl/Documents/dev/Projects/docker_data/couchdb_data
+
+networks:
+  dbnetwork:
+    name: dbnetwork
+    driver: bridge

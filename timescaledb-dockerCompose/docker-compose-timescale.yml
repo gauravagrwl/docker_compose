@@ -1,0 +1,54 @@
+services:
+
+  timescaledb:
+    image: timescale/timescaledb:2.15.0-pg16
+    container_name: timescaledb
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: market_test_db
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=en_US.UTF-8"
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+    networks:
+      - dbnetwork
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - dbnetwork
+
+volumes:
+  timescaledb_data:
+    name: timescaledb_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      # device: /Users/gauravagrwl/Documents/dev/Projects/docker_data/timescaledb_data
+      # device: /mnt/pi_drive/docker_data/timescaledb_data
+
+  pgadmin_data:
+    name: pgadmin_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      # device: /Users/gauravagrwl/Documents/dev/Projects/docker_data/pgAdmin_data
+      # device: /mnt/pi_drive/docker_data/pgAdmin_data
+
+networks:
+  dbnetwork:
+    driver: bridge

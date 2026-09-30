@@ -1,53 +1,173 @@
 services:
-
-  timescaledb:
+  market_db:
     image: timescale/timescaledb:2.15.0-pg16
-    container_name: timescaledb
-    restart: always
+    container_name: market_db
+    restart: unless-stopped
+    shm_size: "4gb"
+
     ports:
       - "5432:5432"
+
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
-      POSTGRES_DB: market_test_db
-      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=en_US.UTF-8"
+      POSTGRES_DB: market_db
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C.UTF-8"
+
+    command:
+      - postgres
+      # Memory
+      - -c
+      - shared_buffers=4GB
+      - -c
+      - effective_cache_size=12GB
+      - -c
+      - work_mem=64MB
+      - -c
+      - maintenance_work_mem=1GB
+      # WAL / Checkpoint tuning
+      - -c
+      - wal_buffers=64MB
+      - -c
+      - max_wal_size=8GB
+      - -c
+      - min_wal_size=2GB
+      - -c
+      - checkpoint_timeout=15min
+      - -c
+      - checkpoint_completion_target=0.9
+      # Query planner and SSD tuning
+      - -c
+      - random_page_cost=1.1
+      - -c
+      - effective_io_concurrency=200
+      # Connections
+      - -c
+      - max_connections=100
+      # Statistics
+      - -c
+      - default_statistics_target=100
+      # Auto vacuum
+      - -c
+      - autovacuum=on
+      - -c
+      - autovacuum_max_workers=6
+      - -c
+      - autovacuum_naptime=10s
+      - -c
+      - log_min_duration_statement=2000
+
     volumes:
-      - timescaledb_data:/var/lib/postgresql/data
+      - market_db_data:/var/lib/postgresql/data
+
     networks:
       - dbnetwork
 
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin
-    restart: always
+  # -------------------------------------------------------------------
+  # Trading/runtime Redis
+  #
+  # Intended for:
+  # - live market tick history / rolling windows
+  # - strategy runtime state
+  # - broker runtime state
+  # - Redis Streams persistence backlog
+  #
+  # This Redis instance IS persistent.
+  # -------------------------------------------------------------------
+  redis_runtime:
+    image: redis:8.10.0-alpine
+    container_name: redis_runtime
+    restart: unless-stopped
+
+    # Local development access from FastAPI running directly on the Mac.
+    # Binding to 127.0.0.1 prevents LAN/public exposure.
     ports:
-      - "8080:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
+      - "127.0.0.1:6379:6379"
+
+    command:
+      - redis-server
+      - --appendonly
+      - "yes"
+      - --appendfsync
+      - everysec
+      - --maxmemory-policy
+      - noeviction
+
     volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      - redis_runtime_data:/data
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
     networks:
       - dbnetwork
+
+  # -------------------------------------------------------------------
+  # Application/session Redis
+  #
+  # Intended for:
+  # - application sessions
+  # - Schwab OAuth access/refresh tokens
+  # - short-lived per-user authentication state
+  #
+  # This Redis instance is intentionally NON-PERSISTENT.
+  # No host volume, no RDB snapshots, no AOF.
+  # -------------------------------------------------------------------
+  redis_session:
+    image: redis:8.10.0-alpine
+    container_name: redis_session
+    restart: unless-stopped
+
+    # FastAPI running directly on the Mac can reach this at localhost:6380.
+    # Inside Docker the service still listens on 6379.
+    ports:
+      - "127.0.0.1:6380:6379"
+
+    command:
+      - redis-server
+      - --save
+      - ""
+      - --appendonly
+      - "no"
+      - --maxmemory-policy
+      - volatile-ttl
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+    networks:
+      - dbnetwork
+
 
 volumes:
-  timescaledb_data:
-    name: timescaledb_data
+  market_db_data:
+    name: market_db_data
     driver: local
     driver_opts:
       type: none
       o: bind
-      # device: /Users/gauravagrwl/Documents/dev/Projects/docker_data/timescaledb_data
-      # device: /mnt/pi_drive/docker_data/timescaledb_data
+      device: /Users/gauravagrwl/Documents/dev/Projects/docker_data/market_db_data
+      # DietPi:
+      # device: /mnt/pi_drive/docker_data/market_db_data
 
-  pgadmin_data:
-    name: pgadmin_data
+  redis_runtime_data:
+    name: redis_runtime_data
     driver: local
     driver_opts:
       type: none
       o: bind
-      # device: /Users/gauravagrwl/Documents/dev/Projects/docker_data/pgAdmin_data
-      # device: /mnt/pi_drive/docker_data/pgAdmin_data
+      device: /Users/gauravagrwl/Documents/dev/Projects/docker_data/redis_runtime_data
+      # DietPi:
+      # device: /mnt/pi_drive/docker_data/redis_runtime_data
+
 
 networks:
   dbnetwork:

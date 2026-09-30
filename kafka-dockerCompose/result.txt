@@ -1,0 +1,78 @@
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/.DS_Store and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/.DS_Store differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading: .env
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading: .git
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading: .gitignore
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/.idea: .gitignore
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/.idea: market_trading.iml
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/.idea: market_trading_temp.iml
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/.idea: misc.xml
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/.idea/modules.xml and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/.idea/modules.xml differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/.idea: vcs.xml
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/.idea/workspace.xml and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/.idea/workspace.xml differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading: .venv
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp: TODO
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading: logs
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/poetry.lock and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/poetry.lock differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/pyproject.toml and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/pyproject.toml differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/.DS_Store and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/.DS_Store differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/__init__.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/__init__.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src: __pycache__
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src: broker_service
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/common: __pycache__
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src: config
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/core: __pycache__
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/core: mediator
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/core/ratios.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/core/ratios.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/core: services
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src: core_temp
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/data: .DS_Store
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/data/updater: .DS_Store
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/.DS_Store and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/database/.DS_Store differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database: __pycache__
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_connection: __pycache__
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_connection/db_connections.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/database/db_connection/db_connections.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_models: __pycache__
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_models/db_utils.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/database/db_models/db_utils.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_models/market_model.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/database/db_models/market_model.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_operations: __pycache__
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_operations: account_loader.py
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_operations/db_queries.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/database/db_operations/db_queries.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_operations/record_loader.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/database/db_operations/record_loader.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_operations/record_transformer.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/database/db_operations/record_transformer.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_operations/upsert_account_records.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/database/db_operations/upsert_account_records.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/database/db_operations/upsert_market_records.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/database/db_operations/upsert_market_records.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/main.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/main.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/record_updater: __pycache__
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/record_updater/nasdaq_records.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/record_updater/nasdaq_records.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/record_updater/record_common_utils.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/record_updater/record_common_utils.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/record_updater/schwab_price_history.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/record_updater/schwab_price_history.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/record_updater/schwab_records.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/record_updater/schwab_records.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src: rough
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/routes: __pycache__
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/routes/schwab_routes.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/routes/schwab_routes.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/scheduler: __pycache__
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/scheduler/job_scheduler.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/scheduler/job_scheduler.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src: schema
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src: service
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src: services
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src: strategies_temp
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/trading_strategy: __pycache__
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/trading_strategy/base_trading_strategy.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/trading_strategy/base_trading_strategy.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/trading_strategy/strategies: __pycache__
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/trading_strategy/strategies: first_green_.py
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/trading_strategy/strategies/first_green_bounce_strategy.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/trading_strategy/strategies/first_green_bounce_strategy.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/trading_strategy/strategies: stepping_red_slope.py
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/trading_strategy/strategies/temp.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/trading_strategy/strategies/temp.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/trading_strategy/trading_strategy_manager.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/trading_strategy/trading_strategy_manager.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/transactions/__init__.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/transactions/__init__.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/transactions: __pycache__
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/transactions/broker_engine.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/transactions/broker_engine.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/transactions: engine_config.py
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/transactions/schwab_engine: __pycache__
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/transactions/schwab_engine/schwab_engine.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/transactions/schwab_engine/schwab_engine.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/transactions/schwab_engine/schwab_order.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/transactions/schwab_engine/schwab_order.py differ
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/transactions/trade_status.py and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/src/transactions/trade_status.py differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src/transactions: tread_safe_data.py
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/src: user_accounts
+Files /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/market_trading/tokens/schwab_tokens.json and /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp/tokens/schwab_tokens.json differ
+Only in /Users/gauravagrwl/Documents/dev/Projects/git/gauravagrwl/temp/market_trading_temp: tokens_tokens

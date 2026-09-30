@@ -37,8 +37,8 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /root/dev/project/docker_data/mongo_data
-      # device: /Users/gauravagrwl/Documents/dev/Projects/docker_data/mongo_data
+      # device: /root/dev/project/docker_data/mongo_data
+      device: /Users/gauravagrwl/Documents/dev/Projects/docker_data/mongo_data
 
 networks:
   dbnetwork:

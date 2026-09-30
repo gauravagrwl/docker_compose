@@ -12,7 +12,18 @@ sources:
       - /var/log/stock_trading/*.log.*
       - /var/log/stock_trading/**/*.log
       - /var/log/stock_trading/**/*.log.*
+
+    read_from: beginning
+
+
+  stock_trading_local_files:
+    type: file
+
+    include:
       - /var/log/stock_trading_local/*.log
+      - /var/log/stock_trading_local/*.log.*
+      - /var/log/stock_trading_local/**/*.log
+      - /var/log/stock_trading_local/**/*.log.*
 
     read_from: beginning
 
@@ -46,6 +57,22 @@ transforms:
       .application = "stock_trading"
       .log_source = "file"
 
+  stock_trading_local_enrich:
+    type: remap
+
+    inputs:
+      - stock_trading_local_files
+
+    source: |
+      parsed, err = parse_json(.message)
+
+      if err == null {
+        . = merge!(., parsed)
+
+      }
+
+      .application = "stock_trading"
+      .log_source = "file"
 
   docker_enrich:
     type: remap
@@ -70,6 +97,27 @@ sinks:
       - stock_trading_enrich
 
     uri: http://openobserve:5080/api/default/stock_trading/_json
+
+    method: post
+
+    auth:
+      strategy: basic
+      user: admin@example.com
+      password: ChangeThisToYourPassword2208!
+
+    encoding:
+      codec: json
+
+    compression: gzip
+
+
+  openobserve_stock_trading_local:
+    type: http
+
+    inputs:
+      - stock_trading_local_enrich
+
+    uri: http://openobserve:5080/api/default/stock_trading_local/_json
 
     method: post
 

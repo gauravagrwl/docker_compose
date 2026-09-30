@@ -12,6 +12,7 @@ sources:
       - /var/log/stock_trading/*.log.*
       - /var/log/stock_trading/**/*.log
       - /var/log/stock_trading/**/*.log.*
+      - /var/log/stock_trading_local/*.log
 
     read_from: beginning
 

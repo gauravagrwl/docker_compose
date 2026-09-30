@@ -32,6 +32,9 @@ services:
       # ---------------------------------------------------
       - /Users/gauravagrwl/Documents/lab/docker_data/stock_trading_logs:/var/log/stock_trading:ro
 
+      # Native Mac / PyCharm logs
+      - /Users/gauravagrwl/Documents/lab/git_lab/gauravagrwl/stock_trading/logs:/var/log/stock_trading_local:ro
+
       # ---------------------------------------------------
       # Docker container stdout/stderr
       # ---------------------------------------------------

@@ -1,0 +1,104 @@
+# ============================================================
+# SOURCES
+# ============================================================
+
+sources:
+
+  stock_trading_files:
+    type: file
+
+    include:
+      - /var/log/stock_trading/*.log
+      - /var/log/stock_trading/*.log.*
+      - /var/log/stock_trading/**/*.log
+      - /var/log/stock_trading/**/*.log.*
+
+    read_from: beginning
+
+
+  docker_logs:
+    type: docker_logs
+
+    docker_host: unix:///var/run/docker.sock
+
+
+# ============================================================
+# TRANSFORMS
+# ============================================================
+
+transforms:
+
+  stock_trading_enrich:
+    type: remap
+
+    inputs:
+      - stock_trading_files
+
+    source: |
+      parsed, err = parse_json(.message)
+
+      if err == null {
+        . = merge!(., parsed)
+
+      }
+
+      .application = "stock_trading"
+      .log_source = "file"
+
+
+  docker_enrich:
+    type: remap
+
+    inputs:
+      - docker_logs
+
+    source: |
+      .log_source = "docker"
+
+
+# ============================================================
+# SINKS
+# ============================================================
+
+sinks:
+
+  openobserve_stock_trading:
+    type: http
+
+    inputs:
+      - stock_trading_enrich
+
+    uri: http://openobserve:5080/api/default/stock_trading/_json
+
+    method: post
+
+    auth:
+      strategy: basic
+      user: admin@example.com
+      password: ChangeThisToYourPassword2208!
+
+    encoding:
+      codec: json
+
+    compression: gzip
+
+
+  openobserve_docker:
+    type: http
+
+    inputs:
+      - docker_enrich
+
+    uri: http://openobserve:5080/api/default/docker_logs/_json
+
+    method: post
+
+    auth:
+      strategy: basic
+      user: ${OPENOBSERVE_USER}
+      password: ${OPENOBSERVE_PASSWORD}
+
+    encoding:
+      codec: json
+
+    compression: gzip

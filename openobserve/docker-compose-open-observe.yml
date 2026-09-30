@@ -1,0 +1,51 @@
+services:
+
+  openobserve:
+    image: o2cr.ai/openobserve/openobserve:latest
+    container_name: openobserve
+    restart: unless-stopped
+
+    ports:
+      - "5080:5080"
+
+    environment:
+      ZO_DATA_DIR: /data
+      ZO_ROOT_USER_EMAIL: ${OPENOBSERVE_USER}
+      ZO_ROOT_USER_PASSWORD: ${OPENOBSERVE_PASSWORD}
+
+    volumes:
+      - /Users/gauravagrwl/Documents/lab/docker_data/openobserve:/data
+
+
+  vector:
+    image: timberio/vector:latest-alpine
+    container_name: openobserve_vector
+    restart: unless-stopped
+
+    depends_on:
+      - openobserve
+
+    volumes:
+
+      # ---------------------------------------------------
+      # Stock Trading application log files
+      # ---------------------------------------------------
+      - /Users/gauravagrwl/Documents/lab/docker_data/stock_trading_logs:/var/log/stock_trading:ro
+
+      # ---------------------------------------------------
+      # Docker container stdout/stderr
+      # ---------------------------------------------------
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+      # ---------------------------------------------------
+      # Vector configuration
+      # ---------------------------------------------------
+      - ./vector/vector.yml:/etc/vector/vector.yml:ro
+
+    environment:
+      OPENOBSERVE_USER: ${OPENOBSERVE_USER}
+      OPENOBSERVE_PASSWORD: ${OPENOBSERVE_PASSWORD}
+
+    command:
+      - --config
+      - /etc/vector/vector.yml

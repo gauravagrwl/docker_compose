@@ -27,6 +27,17 @@ sources:
 
     read_from: beginning
 
+  percent_local_files:
+    type: file
+
+    include:
+      - /var/log/percent_local_files/*.log
+      - /var/log/percent_local_files/*.log.*
+      - /var/log/percent_local_files/**/*.log
+      - /var/log/percent_local_files/**/*.log.*
+
+    read_from: beginning
+
 
   docker_logs:
     type: docker_logs
@@ -74,6 +85,23 @@ transforms:
       .application = "stock_trading"
       .log_source = "file"
 
+  percent_local_enrich:
+    type: remap
+
+    inputs:
+      - percent_local_files
+
+    source: |
+      parsed, err = parse_json(.message)
+
+      if err == null {
+        . = merge!(., parsed)
+
+      }
+
+      .application = "percent_app"
+      .log_source = "file"
+
   docker_enrich:
     type: remap
 
@@ -118,6 +146,27 @@ sinks:
       - stock_trading_local_enrich
 
     uri: http://openobserve:5080/api/default/stock_trading_local/_json
+
+    method: post
+
+    auth:
+      strategy: basic
+      user: admin@example.com
+      password: ChangeThisToYourPassword2208!
+
+    encoding:
+      codec: json
+
+    compression: gzip
+
+
+  openobserve_percent_local:
+    type: http
+
+    inputs:
+      - percent_local_enrich
+
+    uri: http://openobserve:5080/api/default/percent_local/_json
 
     method: post
 

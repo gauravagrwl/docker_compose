@@ -35,6 +35,9 @@ services:
       # Native Mac / PyCharm logs
       - /Users/gauravagrwl/Documents/lab/git_lab/gauravagrwl/stock_trading/logs:/var/log/stock_trading_local:ro
 
+      # Native Mac / Percent application logs
+      - /Users/gauravagrwl/Documents/lab/logs/percent_app_log:/var/log/percent_local_files:ro
+
       # ---------------------------------------------------
       # Docker container stdout/stderr
       # ---------------------------------------------------
